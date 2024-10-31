@@ -1,3 +1,5 @@
+# Function definitions
+
 def binary():
     output_type = input("Select the type of number you want to convert to (b/d/h): ")
 
@@ -15,18 +17,21 @@ def decimal():
         input_decimal = input("Input de decimal number: ")
         # Need to verify decimal
         while input_decimal != 0:
-            input_decimal // 2
-            remainder = input_decimal % 2
-            rev_binary = rev_binary + str(remainder)
+            int(input_decimal) // 2
+            remainder = int(input_decimal) % 2
+            reveresed_binary = "" + str(remainder)
 
-        while len(rev_binary):
+        while len(reversed_binary):
             i = -1
             binary_output = binary_output + binary_output[i]
             i = i - 1
+
         print(binary_output)
 
 def hexadecimal():
     print("PLACEHOLDER")
+
+# Start of the interface
 
 print("Base Converter takes any combination of binary, decimal and hexadecimal.")
 
