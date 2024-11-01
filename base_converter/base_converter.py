@@ -16,13 +16,17 @@ def decimal():
     if output_type == 'b':
         input_decimal = input("Input de decimal number: ")
         # Need to verify decimal
-        while input_decimal != 0:
-            int(input_decimal) // 2
+        reversed_binary = ""
+        while int(input_decimal) != 0:
+            input_decimal = int(input_decimal) // 2
             remainder = int(input_decimal) % 2
-            reveresed_binary = "" + str(remainder)
+            reversed_binary = str(reversed_binary) + str(remainder)
+            #For debugging
+            print(reversed_binary)
 
-        while len(reversed_binary):
-            i = -1
+        i = -1
+        binary_output = ""
+        while (i * -1) != (len(reversed_binary) +1):
             binary_output = binary_output + binary_output[i]
             i = i - 1
 
