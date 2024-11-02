@@ -14,23 +14,28 @@ def decimal():
     output_type = input("Select the type of number you want to convert to (b/d/h): ")
 
     if output_type == 'b':
-        input_decimal = input("Input de decimal number: ")
+        input_decimal = int(input("Input the decimal number: "))
         # Need to verify decimal
         reversed_binary = ""
-        while int(input_decimal) != 0:
-            input_decimal = int(input_decimal) // 2
-            remainder = int(input_decimal) % 2
+        while input_decimal > 0:
+            input_decimal = input_decimal // 2
+            remainder = input_decimal % 2
             reversed_binary = str(reversed_binary) + str(remainder)
             #For debugging
-            print(reversed_binary)
+            print(input_decimal)
+            #print(reversed_binary)
 
-        i = -1
-        binary_output = ""
-        while (i * -1) != (len(reversed_binary) +1):
-            binary_output = binary_output + binary_output[i]
-            i = i - 1
+        #i = -1
+        #binary_output = ""
+        #while (i * -1) != (len(reversed_binary) +1):
+        #    binary_output = binary_output + reversed_binary[i]
+        #    i = i - 1
 
-        print(binary_output)
+        print(reversed_binary)
+        #print(binary_output)
+
+    else:
+        print("PLACEHOLDER")
 
 def hexadecimal():
     print("PLACEHOLDER")
