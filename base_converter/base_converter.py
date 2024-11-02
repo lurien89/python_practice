@@ -18,21 +18,17 @@ def decimal():
         # Need to verify decimal
         reversed_binary = ""
         while input_decimal > 0:
-            input_decimal = input_decimal // 2
             remainder = input_decimal % 2
+            input_decimal = input_decimal // 2
             reversed_binary = str(reversed_binary) + str(remainder)
-            #For debugging
-            print(input_decimal)
-            #print(reversed_binary)
 
-        #i = -1
-        #binary_output = ""
-        #while (i * -1) != (len(reversed_binary) +1):
-        #    binary_output = binary_output + reversed_binary[i]
-        #    i = i - 1
+        i = -1
+        binary_output = ""
+        while (i * -1) != (len(reversed_binary) +1):
+            binary_output = binary_output + reversed_binary[i]
+            i = i - 1
 
-        print(reversed_binary)
-        #print(binary_output)
+        print(binary_output)
 
     else:
         print("PLACEHOLDER")
