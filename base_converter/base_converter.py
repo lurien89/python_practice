@@ -7,8 +7,19 @@ def binary():
         input_binary = input("Input the binary number: ")
         # Need to verify that the input number is in fact binary
 
-        # Binary to decimal converter here
+        i = len(input_binary) - 1
+        j = 0
+        output_decimal = 0
 
+        while i >= 0:
+            output_decimal = output_decimal + (int(input_binary[j]) * 2 ** i)
+            i = i - 1
+            j = j + 1
+
+        print(output_decimal)
+
+    else:
+        print("Invalid option")
 
 def decimal():
     output_type = input("Select the type of number you want to convert to (b/d/h): ")
