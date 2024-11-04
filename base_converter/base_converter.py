@@ -1,11 +1,10 @@
-# Function definitions
-
 def binary_to_decimal(input_binary):
 
     i = len(input_binary) - 1
     j = 0
     output_decimal = 0
 
+    # Loop through each bit in the binary input, from left to right
     while i >= 0:
         output_decimal = output_decimal + (int(input_binary[j]) * 2 ** i)
         i = i - 1
@@ -21,7 +20,7 @@ def decimal_to_binary(input_decimal):
         
     while input_decimal > 0:
         remainder = input_decimal % 2
-        binary_digits.append(str(remainder))
+        binary_digits.append(str(remainder)) # Append the remainder as a string to the binary_digits list
         input_decimal //= 2
 
     binary_digits.reverse()
@@ -34,7 +33,7 @@ def decimal_to_hex(input_decimal):
         
     while input_decimal > 0:
         remainder = input_decimal % 16
-        if remainder < 10:
+        if remainder < 10: # Append numeric digits (0-9) or convert to hexadecimal letters (A-F)
             hex_digits.append(str(remainder))
             
         else:
@@ -42,7 +41,9 @@ def decimal_to_hex(input_decimal):
 
         input_decimal //= 16
 
+    # Reverse to arrange digits in correct order
     hex_digits.reverse()
+    # Combine list of hex digits into a single string
     hex_output = ''.join(hex_digits)
 
     return(hex_output)
@@ -59,8 +60,10 @@ def hex_to_decimal(input_hex):
     for digit in reversed(input_hex):
         if '0' <= digit <= '9':  # Convert '0'-'9' to 0-9
             decimal_value = ord(digit) - ord('0')
+
         elif 'A' <= digit <= 'F':  # Convert 'A'-'F' to 10-15
             decimal_value = ord(digit) - ord('A') + 10
+
         else:
             print("Invalid hexadecimal number.")
             return
