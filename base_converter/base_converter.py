@@ -86,11 +86,11 @@ def user_interface():
         binary_input = (input("Enter the binary number: "))
         print(binary_input, "equals", binary_to_decimal(binary_input), "in decimal.")
 
-    elif input_data[0] == 'b' and input_data[1] == "h":
+    elif input_data[0] == 'b' and input_data[1] == 'h':
         binary_input = (input("Enter the binary number: "))
         print(binary_input,"equals",binary_to_hex(binary_input))
 
-    elif input_data[0] == 'd' and input_data[1] == "b":
+    elif input_data[0] == 'd' and input_data[1] == 'b':
         decimal_input = (input("Enter the decimal number: "))
         print(decimal_input, "equals", decimal_to_binary(decimal_input), "in binary.")
 
