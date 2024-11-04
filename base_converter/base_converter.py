@@ -1,25 +1,22 @@
 # Function definitions
 
-def binary():
-    output_type = input("Select the type of number you want to convert to (b/d/h): ")
+def binary_to_decimal(input_binary):
 
-    if output_type == 'd':
-        input_binary = input("Input the binary number: ")
+    #input_binary = input("Input the binary number: ")
         # Need to verify that the input number is in fact binary
 
-        i = len(input_binary) - 1
-        j = 0
-        output_decimal = 0
+    i = len(input_binary) - 1
+    j = 0
+    output_decimal = 0
 
-        while i >= 0:
-            output_decimal = output_decimal + (int(input_binary[j]) * 2 ** i)
-            i = i - 1
-            j = j + 1
+    while i >= 0:
+        output_decimal = output_decimal + (int(input_binary[j]) * 2 ** i)
+        i = i - 1
+        j = j + 1
 
-        return(output_decimal)
+    return(output_decimal)
 
-    else:
-        print("Invalid option")
+    
 
 def decimal():
     output_type = input("Select the type of number you want to convert to (b/d/h): ")
@@ -65,20 +62,38 @@ def hexadecimal():
 
 # Start of the interface
 
-print("Base Converter takes any combination of binary, decimal and hexadecimal.")
+def user_interface():
+    input_data = []
+    
+    print("Base Converter takes any combination of binary, decimal and hexadecimal.")
 
-input_type = input("Select type of number you want to convert (b/d/h): ")
+    input_data[0] = input("Select the type of number you want to convert from (b/d/h): ")
+    input_data[1] = input("Select the type of number you want to convert to (b/d/h): ")
 
-if input_type == 'b':
-    binary()
+    if input_data[0] == 'b' and input_data[1] == 'd':
+        binary_input = (input("Enter the binary number: "))
+        print(binary_input, "equals ", binary_to_decimal(binary_input), " in decimal.")
 
-elif input_type == 'd':
-    decimal()
+    elif input_data[0] == 'b' and input_data[1] == "h":
+        print("PLACEHOLDER")
 
-elif input_type == 'h':
-    hexadecimal()
+    elif input_data[0] == 'd' and input_data[1] == "b":
+        print("PLACEHOLDER")
 
-else:
-    print("Input error")
+    elif input_data[0] == 'd' and input_data[1] == 'h':
+        print("PLACEHOLDER")
+
+    elif input_data[0] == 'h' and input_data[1] == 'b':
+        print("PLACEHOLDER")
+
+    elif input_data[0] == 'h' and input_data[1] == 'd':
+        print("PLACEHOLDER")
+
+    elif input_data[0] == 'x' or input_data[1] == 'x':
+        exit
+        
+    else:
+        print("Input error")
+        user_interface()
 
 
