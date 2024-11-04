@@ -14,7 +14,7 @@ def binary_to_decimal(input_binary):
     return(output_decimal)
 
 def binary_to_hex(input_binary):
-    print("PLACEHOLDER")
+    return(decimal_to_hex(binary_to_decimal(input_binary)))
 
 def decimal_to_binary(input_decimal):
     binary_digits = []
@@ -47,10 +47,29 @@ def decimal_to_hex(input_decimal):
 
     return(hex_output)
 
-def hexadecimal():
-    print("PLACEHOLDER")
+def hex_to_binary(input_hex):
+    return(decimal_to_binary(hex_to_decimal(input_hex)))
 
-# Start of the interface
+def hex_to_decimal(input_hex):
+    
+    decimal_output = 0
+    power = 0
+    
+    # Process each character from right to left (reverse order)
+    for digit in reversed(input_hex):
+        if '0' <= digit <= '9':  # Convert '0'-'9' to 0-9
+            decimal_value = ord(digit) - ord('0')
+        elif 'A' <= digit <= 'F':  # Convert 'A'-'F' to 10-15
+            decimal_value = ord(digit) - ord('A') + 10
+        else:
+            print("Invalid hexadecimal number.")
+            return
+
+        # Add to the total decimal output
+        decimal_output += decimal_value * (16 ** power)
+        power += 1
+
+    return(decimal_output)
 
 def user_interface():
     input_data = []
@@ -65,19 +84,24 @@ def user_interface():
         print(binary_input, "equals", binary_to_decimal(binary_input), "in decimal.")
 
     elif input_data[0] == 'b' and input_data[1] == "h":
-        print("PLACEHOLDER")
+        binary_input = (input("Enter the binary number: "))
+        print(binary_input,"equals",binary_to_hex(binary_input))
 
     elif input_data[0] == 'd' and input_data[1] == "b":
-        print("PLACEHOLDER")
+        decimal_input = (input("Enter the decimal number: "))
+        print(decimal_input, "equals", decimal_to_binary(decimal_input), "in binary.")
 
     elif input_data[0] == 'd' and input_data[1] == 'h':
-        print("PLACEHOLDER")
+        decimal_input = input("Enter the decimal number: ")
+        print(decimal_input, "equals", decimal_to_hex(decimal_input), "in hexadecimal.")
 
     elif input_data[0] == 'h' and input_data[1] == 'b':
-        print("PLACEHOLDER")
+        hex_input = (input("Enter the hex number: "))
+        print(hex_input, "equals", hex_to_binary(hex_input), "in binary.")
 
     elif input_data[0] == 'h' and input_data[1] == 'd':
-        print("PLACEHOLDER")
+        hex_input = input("Enter the hexadecimal number: ").upper()
+        print(hex_input, "equals", hex_to_decimal(hex_input), "in decimal")
 
     elif input_data[0] == 'x' or input_data[1] == 'x':
         exit
