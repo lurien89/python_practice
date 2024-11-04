@@ -15,3 +15,5 @@ Projects in this repo:
 1.- Base Converter
 
     Converts any given number in any combination of binary, decimal, and hexadecimal.
+    TODO:   - Error handling
+            - GUI
