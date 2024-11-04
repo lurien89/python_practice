@@ -66,7 +66,7 @@ def hex_to_decimal(input_hex):
 
         else:
             print("Invalid hexadecimal number.")
-            return
+            exit()
 
         # Add to the total decimal output
         decimal_output += decimal_value * (16 ** power)
@@ -107,7 +107,7 @@ def user_interface():
         print(hex_input, "equals", hex_to_decimal(hex_input), "in decimal")
 
     elif input_data[0] == 'x' or input_data[1] == 'x':
-        exit
+        exit()
 
     else:
         print("Input error")
