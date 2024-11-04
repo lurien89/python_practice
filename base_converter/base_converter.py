@@ -16,36 +16,46 @@ def binary():
             i = i - 1
             j = j + 1
 
-        print(output_decimal)
+        return(output_decimal)
 
     else:
         print("Invalid option")
 
 def decimal():
     output_type = input("Select the type of number you want to convert to (b/d/h): ")
-    binary_digits = []
 
     if output_type == 'b':
+        binary_digits = []
         input_decimal = int(input("Input the decimal number: "))
-        # reversed_binary = ""
+        
         while input_decimal > 0:
             remainder = input_decimal % 2
-            #input_decimal = input_decimal // 2
             binary_digits.append(str(remainder))
-            #reversed_binary = str(reversed_binary) + str(remainder)
             input_decimal //= 2
 
         binary_digits.reverse()
-
-        #i = -1
-        #binary_output = ""
-        #while (i * -1) != (len(reversed_binary) +1):
-        #    binary_output = binary_output + reversed_binary[i]
-        #    i = i - 1
-
         binary_output = ''.join(binary_digits)
 
-        print(binary_output)
+        return(binary_output)
+
+    elif output_type == "h":
+        hex_digits = []
+        input_decimal = int(input("Input the decimal number :"))
+
+        while input_decimal > 0:
+            remainder = input_decimal % 16
+            if remainder < 10:
+                hex_digits.append(str(remainder))
+            
+            else:
+                hex_digits.append(chr(remainder - 10 + ord('A')))
+
+            input_decimal //= 16
+
+        hex_digits.reverse()
+        hex_output = ''.join(hex_digits)
+
+        return(hex_output)
 
     else:
         print("PLACEHOLDER")
